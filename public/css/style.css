@@ -1,0 +1,25 @@
+body {
+    padding: 20px;
+  }
+
+  .product-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  .product-img {
+    max-width: 150%;
+    height: auto;
+  }
+
+  .product-info {
+    padding: 20px;
+  }
+
+  .category-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
