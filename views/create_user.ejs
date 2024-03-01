@@ -15,36 +15,8 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">DANH SÁCH SẢN PHẨM</h1>
-                    <table class="table table-striped">
-                        <thead>
-                          <tr  style="text-align: center;">
-                            <th scope="col">#</th>
-                            <th scope="col">Tên sản phẩm</th>
-                            <th scope="col">Hình sản phẩm</th>
-                            <th scope="col">Giá nhập</th>
-                            <th scope="col">Số lượng</th>
-                            <th scope="col">Ngày nhập hàng</th>
-                            <th scope="col">Hành động</th>
-                          </tr>
-                        </thead>
-                        <% items.forEach(item => { %>
-                            <tr  style="text-align: center;">
-                              <th scope="row"><%= item.transaction_id %></th>
-                              <td><%= item.product_name %></td>
-                              <td></td>
-                              <td><%= item.quantity %></td>
-                              <td><%= item.price %></td>
-                              <td><%= new Date(item.transaction_date).toLocaleDateString('vi-VN') %></td>
-                              <td>
-                                <a href="#"><i class="fas fa-plus"></i></a>
-                                <a href="#"><i class="fas fa-edit"></i></a>
-                                <a href="#" ><i class="fas fa-trash"></i></a>
-                              </td>
-                            </tr>
-                          <% }); %>
-                        </tbody>
-                      </table>
+                    <h1 class="h3 mb-4 text-gray-800">THÊM MỚI NGƯỜI DÙNG</h1>
+                    <select name="" id=""></select>
                 </div>
             </div>
 

@@ -3,7 +3,28 @@ const config = require('../config/db.config');
 
 // list all users
 async function getUsers() {
-  const query = 'SELECT * FROM users';
+  const query = `
+  SELECT
+  u.user_id,
+  u.user_name,
+  u.user_email,
+  u.user_phone,
+  u.hire_date,
+  iu.user_name AS introducer_name,
+  mu.user_name AS manager_name,
+  u.is_manager
+FROM
+  users u
+LEFT JOIN
+  users iu ON u.introducer_id = iu.user_id
+LEFT JOIN
+  managers m ON u.manager_id = m.user_id
+LEFT JOIN
+  users mu ON u.manager_id = mu.user_id;
+
+
+
+  `;
   try {
     const connection = await mysql.createConnection(config.database);
     const [results, fields] = await connection.execute(query);
@@ -40,7 +61,6 @@ async function getIntroducer() {
 }
 
 // list manager
-
 async function getManager() {
   const query = `
                   SELECT *
@@ -60,7 +80,6 @@ async function getManager() {
     throw error;
   }
 }
-
 
 async function getDetailUser(id) {
   const query = `

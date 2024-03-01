@@ -20,28 +20,41 @@
                         <thead>
                           <tr  style="text-align: center;">
                             <th scope="col">#</th>
-                            <th scope="col">Tên sản phẩm</th>
-                            <th scope="col">Hình sản phẩm</th>
-                            <th scope="col">Giá nhập</th>
-                            <th scope="col">Số lượng</th>
-                            <th scope="col">Ngày nhập hàng</th>
+                            <th scope="col">Họ tên</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Điện thoại</th>
+                            <th scope="col">Người quản lý</th>
+                            <th scope="col">Người giới thiệu</th>
+                            <th scope="col">Ngày vào làm</th>
+                            <th scope="col">Quản lý</th>
                             <th scope="col">Hành động</th>
                           </tr>
                         </thead>
-                        <% items.forEach(item => { %>
+                        <% let total = 0; %>
+                        <% users.forEach((item, index) => { %>
                             <tr  style="text-align: center;">
-                              <th scope="row"><%= item.transaction_id %></th>
-                              <td><%= item.product_name %></td>
-                              <td></td>
-                              <td><%= item.quantity %></td>
-                              <td><%= item.price %></td>
-                              <td><%= new Date(item.transaction_date).toLocaleDateString('vi-VN') %></td>
+                              <th scope="row"><%= index + 1 %></th>
+                              <td><%= item.user_name %></td>
+                              <td><%= item.user_email %></td>
+                              <td><%= item.user_phone %></td>
+                              <td><%= item.manager_name %></td>
+                              <td><%= item.introducer_name %></td>
+                              <td><%= new Date(item.hire_date).toLocaleDateString('vi-VN') %></td>
                               <td>
-                                <a href="#"><i class="fas fa-plus"></i></a>
+                                <% if (item.is_manager) { %>
+                                  <span>&#10004;</span> <!-- Check mark symbol -->
+                                <% } else { %>
+                                  <!-- You can optionally provide a symbol for false or leave it blank -->
+                                <% } %>
+                              </td>
+                              
+                              <td>
+                                <a href="/create-user"><i class="fas fa-plus"></i></a>
                                 <a href="#"><i class="fas fa-edit"></i></a>
                                 <a href="#" ><i class="fas fa-trash"></i></a>
                               </td>
                             </tr>
+                            <% total += index %>
                           <% }); %>
                         </tbody>
                       </table>
